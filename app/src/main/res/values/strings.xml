@@ -755,7 +755,7 @@ New dictionary:
     <string name="theme_name_firouzeh" tools:keep="@string/theme_name_firouzeh">Firouzeh</string>
     <string name="theme_name_firouzeh_dark" tools:keep="@string/theme_name_firouzeh_dark">Firouzeh Dark</string>
     <!-- Toolbar key: switch between normal typing and "visual" Persian (shaped, reversed text for apps without RTL support) -->
-    <string name="persian_visual" tools:keep="@string/persian_visual">Visual Persian (for games)</string>
+    <string name="persian_visual" tools:keep="@string/persian_visual">Game mode</string>
     <!-- Theme name for ocean theme -->
     <string name="theme_name_ocean" tools:keep="@string/theme_name_ocean">Ocean</string>
     <!-- Theme name for pink theme -->

@@ -218,6 +218,11 @@ object SubtypeSettings {
     @Suppress("SameReturnValue")
     private fun getDefaultEnabledSubtypes(): List<InputMethodSubtype> {
         if (systemSubtypes.isNotEmpty()) return systemSubtypes
+        // this fork: English and Persian are enabled by default (instead of the system languages)
+        listOf(Locale.US, Locale.forLanguageTag("fa")).forEach { locale ->
+            resourceSubtypesByLocale[locale]?.firstOrNull()?.let { systemSubtypes.add(it) }
+        }
+        if (systemSubtypes.isNotEmpty()) return systemSubtypes
         val subtypes = systemLocales.mapNotNull { locale ->
             val subtypesOfLocale = resourceSubtypesByLocale[locale]
             // get best match

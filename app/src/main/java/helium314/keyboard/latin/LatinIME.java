@@ -685,6 +685,7 @@ public class LatinIME extends InputMethodService implements
                                : view.findViewById(R.id.suggestion_strip_view);
         if (hasSuggestionStripView()) {
             mSuggestionStripView.setRtl(mRichImm.getCurrentSubtype().isRtlSubtype());
+            mSuggestionStripView.updateGameModeKey();
             mSuggestionStripView.setListener(this, view);
         }
     }
@@ -745,6 +746,7 @@ public class LatinIME extends InputMethodService implements
         loadKeyboard();
         if (hasSuggestionStripView()) {
             mSuggestionStripView.setRtl(mRichImm.getCurrentSubtype().isRtlSubtype());
+            mSuggestionStripView.updateGameModeKey();
         }
         mSettings.saveSubtypeForApp(mRichImm.getCurrentSubtype(), getCurrentInputEditorInfo().packageName);
     }
@@ -790,8 +792,10 @@ public class LatinIME extends InputMethodService implements
         // we want to reload the settings before calling updateKeyboardTheme, because updateKeyboardTheme reads SettingsValues.mToolbarMode
         if (isDifferentTextField || !currentSettingsValues.hasSameOrientation(getResources().getConfiguration())) {
             loadSettings();
-            if (hasSuggestionStripView())
+            if (hasSuggestionStripView()) {
                 mSuggestionStripView.updateVoiceKey();
+                mSuggestionStripView.updateGameModeKey();
+            }
         }
 
         mKeyboardSwitcher.updateKeyboardTheme(mDisplayContext);

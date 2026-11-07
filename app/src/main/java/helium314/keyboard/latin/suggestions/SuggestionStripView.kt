@@ -32,6 +32,7 @@ import androidx.core.view.isVisible
 import helium314.keyboard.event.HapticEvent
 import helium314.keyboard.keyboard.KeyboardSwitcher
 import helium314.keyboard.keyboard.internal.KeyboardIconsSet
+import helium314.keyboard.latin.RichInputMethodManager
 import helium314.keyboard.keyboard.internal.keyboard_parser.floris.KeyCode
 import helium314.keyboard.latin.AudioAndHapticFeedbackManager
 import helium314.keyboard.latin.dictionary.Dictionary
@@ -504,8 +505,20 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
         pinnedKeys.findViewWithTag<View>(ToolbarKey.VOICE)?.isVisible = show
     }
 
+    /** the game mode toggle only makes sense for Persian, so it is hidden for every other language */
+    fun updateGameModeKey() {
+        val isPersian = try {
+            RichInputMethodManager.getInstance().currentSubtypeLocale.language == "fa"
+        } catch (_: Exception) {
+            false
+        }
+        toolbar.findViewWithTag<View>(ToolbarKey.PERSIAN_VISUAL)?.isVisible = isPersian
+        pinnedKeys.findViewWithTag<View>(ToolbarKey.PERSIAN_VISUAL)?.isVisible = isPersian
+    }
+
     private fun updateKeys() {
         updateVoiceKey()
+        updateGameModeKey()
         val settingsValues = Settings.getValues()
 
         val toolbarIsExpandable = settingsValues.mToolbarMode == ToolbarMode.EXPANDABLE
