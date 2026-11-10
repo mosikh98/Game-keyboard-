@@ -18,7 +18,7 @@ disconnected and reversed. This fork adds a **Game mode** button (gamepad icon) 
 |---|---|
 | `سلام چطورید` | `ﺪﯾﺭﻮﻄﭼ ﻡﺎﻠﺳ` |
 
-- The button sits in the corner of the suggestion strip and is **only shown on the Persian keyboard**. Tap to switch on / off. It is bright when on, dimmed when off.
+- The button sits in the corner of the suggestion strip and is **only shown on the Persian keyboard**. Tap to switch on / off. **ON** = highlighted rounded background with the gamepad icon, **OFF** = dimmed, crossed-out gamepad.
 - When on, every key press re-renders the whole typed run (contextual letter forms + reversed order), so the previous letter changes shape correctly while you type, and backspace works letter by letter.
 - Digits and Latin words keep their order, brackets are mirrored, ZWNJ (نیم‌فاصله) breaks joining and is dropped, diacritics stay on their letter.
 - Lam-alef ligatures are not used (lam and alef stay separate glyphs, like the converter site).
@@ -28,9 +28,11 @@ disconnected and reversed. This fork adds a **Game mode** button (gamepad icon) 
 
 ### Defaults
 - **English and Persian** are enabled by default (instead of the system languages).
+- **Clipboard history keeps everything**: no time limit and no count limit (upstream deletes clips after 10 minutes by default).
 - The **language switch key** and the **emoji key** are on by default.
 - New default **Firouzeh** (turquoise) keyboard themes, light and dark, with the **Rounded** key style and key borders (all other themes are still available).
-- Redesigned app settings (turquoise Material 3 palette, rounder shapes), new launcher icon colors, app name "Game Keyboard".
+- Redesigned app settings (turquoise Material 3 palette, rounder shapes), new launcher icon (gamepad + keys), app name "Game Keyboard".
+- The **About** screen links to this repository and credits the original HeliBoard project.
 
 ## Building
 Push to GitHub and the **Build APK** workflow (`.github/workflows/build-apk.yml`) builds the APK:
@@ -65,7 +67,7 @@ send bugs about the original keyboard upstream, and use this fork's own issues f
 این فورک یک دکمهٔ **حالت بازی** (آیکن دسته‌بازی) دارد که فارسی را دقیقاً مثل [مبدل timecode.ir](https://www.timecode.ir/font-converter/) تایپ می‌کند:
 `سلام چطورید` ← `ﺪﯾﺭﻮﻄﭼ ﻡﺎﻠﺳ`
 
-- دکمه گوشهٔ نوار پیشنهادها قرار دارد و **فقط روی کیبورد فارسی نشان داده می‌شود**؛ با یک لمس روشن/خاموش می‌شود. روشن که باشد پررنگ است.
+- دکمه گوشهٔ نوار پیشنهادها قرار دارد و **فقط روی کیبورد فارسی نشان داده می‌شود**؛ با یک لمس روشن/خاموش می‌شود. **روشن** = پس‌زمینهٔ رنگی با کادر و آیکن دسته‌بازی، **خاموش** = دسته‌بازی کم‌رنگ و خط‌خورده.
 - در حالت روشن، با هر کلید کل متن تایپ‌شده دوباره ساخته می‌شود (شکل درست حروف + ترتیب برعکس)، پس شکل حرف قبلی هنگام تایپ درست عوض می‌شود و بک‌اسپیس هم حرف‌به‌حرف کار می‌کند.
 - اعداد و کلمه‌های لاتین ترتیبشان را حفظ می‌کنند، پرانتزها قرینه می‌شوند، نیم‌فاصله اتصال را قطع می‌کند و در خروجی نمی‌آید.
 - لام‌الف به‌صورت لیگاتور درنمی‌آید (مثل سایت مبدل، لام و الف جدا می‌مانند).
@@ -74,9 +76,11 @@ send bugs about the original keyboard upstream, and use this fork's own issues f
 
 **پیش‌فرض‌ها**
 - زبان‌های **انگلیسی و فارسی** به‌صورت پیش‌فرض روشن‌اند.
+- **کلیپ‌بورد همه‌چیز را نگه می‌دارد**: بدون محدودیت زمان و تعداد (نسخهٔ اصلی بعد از ۱۰ دقیقه پاک می‌کند).
 - **دکمهٔ تغییر زبان** و **دکمهٔ ایموجی** به‌صورت پیش‌فرض روشن‌اند.
 - تم پیش‌فرض جدید **فیروزه‌ای** (روشن و تیره) با کلیدهای گرد و لبه‌دار؛ بقیهٔ تم‌ها هنوز هستند.
-- ظاهر تنظیمات برنامه بازطراحی شده، رنگ آیکن برنامه عوض شده و نام برنامه «Game Keyboard» است.
+- ظاهر تنظیمات برنامه بازطراحی شده، آیکن جدید (دسته‌بازی + کلیدها) و نام برنامه «Game Keyboard» است.
+- بخش **About** به همین ریپو لینک می‌دهد و از پروژهٔ اصلی HeliBoard نام می‌برد.
 
 ### ساخت (بیلد)
 پروژه را روی گیتهاب بگذارید؛ ورک‌فلو **Build APK** فایل APK را می‌سازد:

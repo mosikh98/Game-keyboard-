@@ -808,7 +808,12 @@ New dictionary:
     <!-- version for about screen -->
     <string name="version">Version</string>
     <!-- github repo link for about screen -->
-    <string name="about_github_link">View on GitHub</string>
+    <string name="about_github_link">Game Keyboard on GitHub</string>
+    <!-- description of the fork repo link in the about screen -->
+    <string name="about_fork_description">github.com/mosikh98/Game-keyboard- · downloads (Releases) and bug reports</string>
+    <!-- link to the original project in the about screen -->
+    <string name="about_original_project">Original project: HeliBoard</string>
+    <string name="about_original_project_description">This app is a fork of HeliBoard (GPL-3.0). Thanks to its authors and contributors!</string>
     <!-- link to the wiki for about screen -->
     <string name="about_wiki_link">Go to Wiki</string>
     <!-- description for wiki link -->

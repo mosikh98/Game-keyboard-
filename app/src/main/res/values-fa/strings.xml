@@ -397,7 +397,10 @@
     <string name="discussion_section_link">بخش گفتگو (Discussion)</string>
     <string name="settings_screen_about">درباره</string>
     <string name="version">نسخه</string>
-    <string name="about_github_link">مشاهده در گیت‌هاب</string>
+    <string name="about_github_link">Game Keyboard در گیت‌هاب</string>
+    <string name="about_fork_description">github.com/mosikh98/Game-keyboard- · دانلودها (Releases) و گزارش خطا</string>
+    <string name="about_original_project">پروژهٔ اصلی: HeliBoard</string>
+    <string name="about_original_project_description">این برنامه فورکی از HeliBoard است (GPL-3.0). از سازندگان و مشارکت‌کنندگانش ممنونیم!</string>
     <string name="about_wiki_link">رفتن به ویکی (Wiki)</string>
     <string name="about_wiki_link_description">ویکی می‌تواند توسط هر کاربر گیت‌هاب بهبود یابد!</string>
     <string name="save_log">ذخیره گزارش (Log)</string>

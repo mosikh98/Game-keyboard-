@@ -14,7 +14,7 @@ android {
         minSdk = 21
         targetSdk = 37
         versionCode = 4300
-        versionName = "4.3-beta1"
+        versionName = "1.1-based-on-HeliBoard-4.3-beta1"
         ndk {
             abiFilters.clear()
             abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
@@ -66,7 +66,7 @@ android {
             }
             variant.outputs.forEach { output ->
                 if (output is com.android.build.api.variant.impl.VariantOutputImpl) {
-                    output.outputFileName = "HeliBoard_${defaultConfig.versionName}-${variant.buildType}.apk"
+                    output.outputFileName = "GameKeyboard_${defaultConfig.versionName}-${variant.buildType}.apk"
                 }
             }
         }

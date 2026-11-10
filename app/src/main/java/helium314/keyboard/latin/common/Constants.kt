@@ -6,7 +6,10 @@ object Links {
     const val DICTIONARY_DOWNLOAD_SUFFIX = "/raw/branch/main/"
     const val DICTIONARY_NORMAL_SUFFIX = "dictionaries/"
     const val DICTIONARY_EMOJI_CLDR_SUFFIX = "emoji_cldr_signal_dictionaries/"
-    const val GITHUB = "https://github.com/HeliBorg/HeliBoard"
+    const val GITHUB = "https://github.com/HeliBorg/HeliBoard" // original project, this app is a fork of it
+    const val FORK_GITHUB = "https://github.com/mosikh98/Game-keyboard-"
+    const val FORK_RELEASES = "$FORK_GITHUB/releases"
+    const val FORK_LICENSE = "$FORK_GITHUB/blob/main/LICENSE"
     const val LICENSE = "$GITHUB/blob/main/LICENSE"
     const val WIKI_URL = "$GITHUB/wiki"
     const val LAYOUT_WIKI_URL = "$WIKI_URL/2.-Layouts"

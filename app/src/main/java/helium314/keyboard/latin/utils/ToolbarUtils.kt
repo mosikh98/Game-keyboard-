@@ -3,6 +3,7 @@ package helium314.keyboard.latin.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.view.ViewConfiguration
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import helium314.keyboard.keyboard.internal.KeyboardIconsSet
 import helium314.keyboard.keyboard.internal.keyboard_parser.floris.KeyCode
 import helium314.keyboard.latin.AudioAndHapticFeedbackManager
 import helium314.keyboard.latin.R
+import helium314.keyboard.latin.common.ColorType
 import helium314.keyboard.latin.common.Constants.Separators
 import helium314.keyboard.latin.settings.Defaults
 import helium314.keyboard.latin.settings.Settings
@@ -57,9 +59,34 @@ private fun setToolbarButtonActivatedState(button: ImageButton) {
         ONE_HANDED -> Settings.getValues().mOneHandedModeEnabled
         SPLIT -> Settings.getValues().mIsSplitKeyboardEnabled
         AUTOCORRECT -> Settings.getValues().mAutoCorrectionEnabledPerUserSettings
-        PERSIAN_VISUAL -> Settings.getValues().mPersianVisualMode
+        // read from the prefs directly: SettingsValues may not be reloaded yet when the state is updated
+        PERSIAN_VISUAL -> button.context.prefs().getBoolean(Settings.PREF_PERSIAN_VISUAL_MODE, Defaults.PREF_PERSIAN_VISUAL_MODE)
         BACKGROUND_GATHERING -> useBackgroundGathering
         else -> true
+    }
+    if (button.tag == PERSIAN_VISUAL) applyGameModeLook(button)
+}
+
+/**
+ * The game mode button is a switch, so it gets a look that clearly shows the state:
+ * ON = accent colored rounded background with a border and the normal gamepad icon,
+ * OFF = no background and a dimmed, crossed-out gamepad (see ic_persian_visual.xml).
+ */
+fun applyGameModeLook(button: ImageButton) {
+    button.post { // posted: may be called from a background thread, and it has to run after the key setup
+        if (button.tag != PERSIAN_VISUAL) return@post
+        if (!button.isActivated) {
+            button.background = null
+            return@post
+        }
+        val density = button.resources.displayMetrics.density
+        val accent = Settings.getValues().mColors.get(ColorType.TOOL_BAR_KEY_ENABLED_BACKGROUND)
+        val background = GradientDrawable()
+        background.shape = GradientDrawable.RECTANGLE
+        background.cornerRadius = 12 * density
+        background.setColor((accent and 0x00FFFFFF) or 0x66000000)
+        background.setStroke((2 * density).toInt(), accent or (0xFF shl 24))
+        button.background = background
     }
 }
 
